@@ -25,7 +25,7 @@
 					<tbody>
 						<?php
 						if($data == null){
-
+							echo '<tr><td colspan="7" align="center">-- Data tidak ditemukan. -- </td></tr>';
 						}else{
 						foreach ($data as $key => $value) {
 						?>

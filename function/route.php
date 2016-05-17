@@ -162,6 +162,11 @@ function route($page)
 				$data = $pesan->getLaporan($dt);
 				include "view/admin/laporan.php";
 			break;
+
+		case 'delete_customer':
+				$user->deleteUser($_GET['id_user']);
+			break;
+
 		// // // // // // // // ADMIN // // // // // // // // 
 
 		case 'home':

@@ -31,7 +31,7 @@ if(isset($_GET['jenis'])){
   ?>
   <div class="col-sm-6 col-md-3">
     <div class="thumbnail">
-      <img class="dis-produk" src="<?php echo base_url.'public/images/'.$value['gambar'] ?>" width="100%">
+      <img class="dis-produk" src="<?php echo base_url.'public/images/'.$value['gambar'] ?>" width="100%" style="min-height:210px;">
       <hr>
       <div class="caption">
         <h4><?php echo $value['jenis'] ?></h4>

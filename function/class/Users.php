@@ -155,4 +155,13 @@ class Users extends Core{
 		return implode('', $d);
 	}
 
+	public function deleteUser($id)
+	{
+		if($this->delete($this->primaryKey, $id)){
+			Lib::redirect('index_customer&main=customer');
+		}else{
+			header($this->back);
+		}
+	}
+
 }
