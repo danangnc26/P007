@@ -19,7 +19,7 @@ Class Core{
 	public function save(array $data){
 		$sql = "INSERT INTO `".$this->_tableName."` SET";
 		foreach($data as $field => $value){
-			$sql .= " `".$field."`='".mysql_real_escape_string($value)."',";
+			$sql .= " `".$field."`='".$this->con()->real_escape_string($value)."',";
 		}
 		$sql = rtrim($sql, ',');
 		if ($this->con()->query($sql) === TRUE) {
@@ -36,7 +36,7 @@ Class Core{
 	public function update(array $data, $where = '', $id = ''){
 		$sql = "UPDATE `".$this->_tableName."` SET";
 		foreach($data as $field => $value){
-			$sql .= " `".$field."`='".mysql_real_escape_string($value)."',";
+			$sql .= " `".$field."`='".$this->con()->real_escape_string($value)."',";
 		}
 		$sql = rtrim($sql, ',');
 		if($where){
@@ -57,7 +57,7 @@ Class Core{
 	}
 	
 	public function updateBy($field, $value, array $data){
-		$where = "`".$field."`='".mysql_real_escape_string($value)."'";
+		$where = "`".$field."`='".$this->con()->real_escape_string($value)."'";
 		$this->update($data, $where);
 	}
 	
@@ -81,7 +81,7 @@ Class Core{
 	}
 	
 	public function deleteBy($field, $value){
-		$where = "`".$field."`='".mysql_real_escape_string($value)."'";
+		$where = "`".$field."`='".$this->con()->real_escape_string($value)."'";
 		$this->delete($where);
 	}
 	
@@ -104,7 +104,7 @@ Class Core{
 	
 	public function findBy($field, $value, $prop = ''){
 		$sql = "SELECT * FROM `".$this->_tableName."`";
-		$sql .=" WHERE `".$field."`='".mysql_real_escape_string($value)."'";
+		$sql .=" WHERE `".$field."`='".$this->con()->real_escape_string($value)."'";
 		if($prop){
 			$sql .= " ".$prop;
 		}

@@ -12,8 +12,8 @@ class Users extends Core{
 
 	public function authenticate($post)
 	{
-		$username = mysql_real_escape_string($post['username']);
-		$password = mysql_real_escape_string($post['password']);
+		$username = $this->con()->real_escape_string($post['username']);
+		$password = $this->con()->real_escape_string($post['password']);
 
 		$result = $this->findAll("where username='".$username."' and password='".md5($password)."'");
 		if(!empty($result) or $result != false){

@@ -258,7 +258,7 @@ function route($page)
 		
 		case 'main' :
 				default : 
-				// header("location:index.php");
+				Lib::redirect('home');
 			break;
 	}
 }
