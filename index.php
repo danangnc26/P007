@@ -1,5 +1,5 @@
 <?php
-	require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'function\route.php';
+	require_once dirname(__FILE__).DIRECTORY_SEPARATOR.'function/route.php';
 ?>
 <!doctype html>
 <html lang=''>

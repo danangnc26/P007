@@ -1,5 +1,5 @@
 <?php
-include_once dirname(__DIR__).DIRECTORY_SEPARATOR.'..\config\Database.php';
+include_once dirname(__DIR__).DIRECTORY_SEPARATOR.'../config/Database.php';
 Class Core{
 
 	protected $_tableName;
