@@ -8,7 +8,7 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a style="color:#fff" class="navbar-brand" href="#">CV.Sembilan Sembilan</a>
+		      <a style="color:#fff" class="navbar-brand" href="<?php echo app_base.'home' ?>">CV.Sembilan Sembilan</a>
 		    </div>
 
 		    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -44,6 +44,14 @@
 		        <?php }} ?>
 		      </ul>	
 		      <ul class="nav navbar-nav navbar-right">
+		      	<?php
+		      	if(!empty($_SESSION)){
+		      	if($_SESSION['level_user'] == 'admin'){
+		      	?>
+		      	<li><a class="nv" href="<?php echo app_base.'show_welcome&main=awal' ?>">Panel Admin</a></li>
+		      	<?php
+		      	}}
+		      	?>
 		      	<?php
 		      	if(empty($_SESSION)){
 		      	?>

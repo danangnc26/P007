@@ -1,6 +1,7 @@
 <?php
 session_start();
 ob_start();
+error_reporting(E_ALL ^ E_DEPRECATED);
 include_once dirname(__FILE__).DIRECTORY_SEPARATOR.'bootstrap.php';
 include_once dirname(__FILE__).DIRECTORY_SEPARATOR.'lib.php';
 

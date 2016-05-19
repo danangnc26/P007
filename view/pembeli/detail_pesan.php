@@ -119,9 +119,10 @@ foreach($data1 as $key1 => $value1){
 		  	</label>
 		  	<p><small>
 		  		Silahkan lakukan pembayaran melalui rekening berikut :
-		  		<li>BCA 0191092121  - a.n CV. Sembilan Sembilan</li>
-		  		<li>BNI 4021390131  - a.n CV. Sembilan Sembilan</li>
-		  		<li>Mandiri 3824719223  - a.n CV. Sembilan Sembilan</li>
+		  		<li> BCA 0191092121  - a.n CV. Sembilan Sembilan</li>
+		  		<li> BNI 4021390131  - a.n CV. Sembilan Sembilan</li>
+		  		<li> Mandiri 3824719223  - a.n CV. Sembilan Sembilan</li>
+		  		<li> BRI 1938183102  - a.n CV. Sembilan Sembilan</li>
 		  	</small></p>
 		  </div>
 		</div>

@@ -69,10 +69,13 @@
 				    			<td><?php echo 'Rp. '.Lib::ind($data5) ?></td>
 				    		</tr>
 				    		<tr>
-				    			<td>Status Tagihan</td>
+				    			<td>Status</td>
 				    			<td>:</td>
 				    			<td>
-				    				<?php echo (($data5 == $value1['grand_total']) or ($data5 >= $value1['grand_total'])) ? 'Lunas' : 'Sudah Dibayar ( Belum Lunas )' ?>
+				    				<?php 
+				    				echo Lib::status($value1['status']);
+				    				// echo (($data5 == $value1['grand_total']) or ($data5 >= $value1['grand_total'])) ? 'Lunas' : 'Sudah Dibayar ( Belum Lunas )' 
+				    				?>
 				    			</td>
 				    		</tr>
 				    	</table>

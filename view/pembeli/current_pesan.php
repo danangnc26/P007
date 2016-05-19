@@ -5,10 +5,11 @@
 		<table class="resp">
 			<thead>
 				<tr>
-					<th>No.</th>
-					<th>Tanggal</th>
+					<th width="10">No.</th>
+					<th width="120">Tanggal</th>
 					<th>Total</th>
-					<th>Status</th>
+					<th>Kekurangan Pembayaran</th>
+					<th width="150">Status</th>
 					<th width="380">Action</th>
 				</tr>
 			</thead>
@@ -23,6 +24,7 @@
 					<td data-label="No."><?php echo $key+1 ?></td>
 					<td data-label="Tanggal"><?php echo Lib::dateInd($value['tanggal']) ?></td>
 					<td data-label="Total"><?php echo 'Rp. '.Lib::ind($value['grand_total']) ?></td>
+					<td data-label="Kekurangan Pembayaran"><?php echo 'Rp. '.Lib::ind($value['kurang_bayar']) ?></td>
 					<td data-label="Status"><?php echo Lib::status($value['status']) ?></td>
 					<td data-label="Action">
 						<?php

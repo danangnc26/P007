@@ -65,13 +65,19 @@
 				    			<td><?php echo 'Rp. '.Lib::ind($data5) ?></td>
 				    		</tr>
 				    		<tr>
-				    			<td>Status Tagihan</td>
+				    			<td>Status</td>
 				    			<td>:</td>
 				    			<td>
-				    				<?php echo (($data5 == $value1['grand_total']) or ($data5 >= $value1['grand_total'])) ? 'Lunas' : 'Sudah Dibayar ( Belum Lunas )' ?>
+				    				<?php 
+				    				echo Lib::status($value1['status']);
+				    				// echo (($data5 == $value1['grand_total']) or ($data5 >= $value1['grand_total'])) ? 'Lunas' : 'Sudah Dibayar ( Belum Lunas )' 
+				    				?>
 				    			</td>
 				    		</tr>
-				    	</table>				    	
+				    	</table>	
+				    	<small>
+				    		Jumlah yang sudah dibayarkan akan tampil setelah divalidasi / diapprove oleh admin.
+				    	</small>			    	
 				  </div>
 				</div>
 			</div>
@@ -88,6 +94,7 @@
 									<th>No. Rekening</th>
 									<th>Pemilik Rekening</th>
 									<th>Nominal Bayar</th>
+									<th>Status Pembayaran</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -104,6 +111,19 @@
 									<td data-label="No. Rekening"><?php echo $value4['no_rekening'] ?></td>
 									<td data-label="Pemilik Rekening"><?php echo $value4['nama_pemilik'] ?></td>
 									<td data-label="Nominal Bayar"><?php echo 'Rp. '.Lib::ind($value4['nominal_bayar']) ?></td>
+									<td data-label="Status Pembayaran" align="center">
+										<?php
+										if($value4['is_approved'] == '0'){
+										?>
+												<i class="fa fa-close" style="color:#da4f49"></i>
+										<?php
+										}else{
+										?>
+												<i class="fa fa-check" style="color:#1caf9a"></i>											
+										<?php
+										}
+										?>
+									</td>
 								</tr>
 								<?php }} ?>
 							</tbody>

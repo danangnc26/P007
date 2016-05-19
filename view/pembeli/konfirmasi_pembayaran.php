@@ -14,7 +14,7 @@
 			<div class="col-md-6">
 				<div class="form-group">
 					<label>Bank tujuan : </label>
-					<select class="form-control cst" name="bank_tujuan">
+					<select class="form-control cst" name="bank_tujuan" required>
 						<option value="">-- Pilih Bank --</option>
 						<option value="Bank Central Asia ( BCA )">CV. Sembilan Sembilan - Bank Central Asia ( BCA )</option>
 						<option value="Bank Mandiri">CV. Sembilan Sembilan - Bank Mandiri</option>
@@ -24,13 +24,13 @@
 				</div>
 				<div class="form-group">
 					<label>Metode pembayaran : </label>
-					<select class="form-control cst" name="metode_pembayaran" readonly>
+					<select class="form-control cst" name="metode_pembayaran" readonly required>
 						<option value="Transfer">Transfer</option>
 					</select>
 				</div>
 				<div class="form-group">
 					<label>Bank yang digunakan : </label>
-					<select class="form-control cst" name="bank_asal">
+					<select class="form-control cst" name="bank_asal" required>
 						<option value="">-- Pilih Bank --</option>
 						<option value="Bank Central Asia ( BCA )">Bank Central Asia ( BCA )</option>
 						<option value="Bank Mandiri">Bank Mandiri</option>
@@ -43,35 +43,35 @@
 				</div>
 				<div class="form-group">
 					<label>Nomor rekening saya : </label>
-					<input class="form-control cst" name="no_rekening">
+					<input class="form-control cst" name="no_rekening" required>
 				</div>
 				<div class="form-group">
 					<label>Nama pemilik rekening : </label>
-					<input class="form-control cst" name="nama_pemilik">
+					<input class="form-control cst" name="nama_pemilik" required>
 				</div>
 				<hr>
-				<div class="form-group">
+				<!-- <div class="form-group">
 					<label>Keterangan Pembayaran : </label>
 					<div class="row">
 						<div class="col-md-3">
 							<label>
-								<input type="radio" value="Uang Muka" name="ket_pembayaran" required> Uang Muka
+								<input type="radio" value="Uang Muka" name="ket_pembayaran" required> Uang Muk requireda
 							</label>
 						</div>
 						<div class="col-md-3">
 							<label>
-								<input type="radio"  value="Pelunasan" name="ket_pembayaran" required> Pelunasan
+								<input type="radio"  value="Pelunasan" name="ket_pembayaran" required> Pelunasa requiredn
 							</label>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<div class="form-group">
 					<label>Total yang harus dibayar / Kekurangan pembayaran : </label>
-					<input class="form-control cst" name="kekurangan_pembayaran" value="<?php echo 'Rp. '.Lib::ind($value1['kurang_bayar']) ?>" readonly>
+					<input class="form-control cst" name="kekurangan_pembayaran" value="<?php echo 'Rp. '.Lib::ind($value1['kurang_bayar']) ?>" readonly required>
 				</div>
 				<div class="form-group">
 					<label>Nominal yang akan dibayarkan : </label>
-					<input class="form-control cst" name="nominal_bayar">
+					<input class="form-control cst" name="nominal_bayar" required>
 				</div>
 				<div class="form-group">
 					<button class="button button-inline button-small button-primary">

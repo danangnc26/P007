@@ -30,7 +30,7 @@ class KonfirmasiPembayaran extends Core{
 					'nama_pemilik'			=> $input['nama_pemilik'],
 					'id_pesan'				=> $input['nomor_pesan'],
 					'nominal_bayar'			=> $input['nominal_bayar'],
-					'keterangan'			=> $input['ket_pembayaran'],
+					// 'keterangan'			=> $input['ket_pembayaran'],
 					'is_approved'			=> '0'
 					];
 			if($this->save($data)){
