@@ -100,7 +100,7 @@ foreach($data1 as $key1 => $value1){
 		    </div>
 		    <div class="form-group">
 		    	<label>No. HP : </label>
-		    	<input type="text" name="no_hp" value="<?php echo $value3['no_hp'] ?>" class="form-control cst">
+		    	<input type="text" pattern="[0-9].{0,}" title="Gunakan Format Angka" name="no_hp" value="<?php echo $value3['no_hp'] ?>" class="form-control cst">
 		    </div>
 		    <div class="form-group">
 		    	<label>Alamat Pengiriman : </label>

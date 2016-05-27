@@ -217,7 +217,11 @@ function route($page)
 				include "view/pembeli/custom_order.php";
 			break;
 		case 'save_custom_order':
-				$produk->saveCustomOrder($p);
+				if(empty($_SESSION)){
+					echo Lib::redirectjs(app_base.'login', 'Silahkan Login Untuk Melakukan Pemesanan.');
+				}else{
+					$produk->saveCustomOrder($p);
+				}
 			break;
 		case 'hapus_pesanan_all':
 				$pivot->removeAllItem($_GET['nomor_pesan']);

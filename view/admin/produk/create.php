@@ -54,7 +54,7 @@
 				</div>
 				<div class="form-group">
 					<label>Harga Satuan : </label>
-					<input type="text" class="form-control cst" name="harga_satuan">
+					<input type="text" pattern="[0-9].{0,}" title="Gunakan Format Angka" required class="form-control cst" name="harga_satuan">
 				</div>
 				<div class="form-group">
 					<label>Publikasi : </label><br>

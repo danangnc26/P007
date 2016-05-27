@@ -176,11 +176,16 @@
 				 		<a href="<?php echo app_base.'daftar_pesananku' ?>">
 							<button type="button" class="button button-inline button-small button-danger"><i class="fa fa-arrow-left"></i> Kembali</button>
 						</a>
+						<?php  
+						if($value1['status'] == '4' || $value1['status'] == '-'){
+						}else{
+						?>
 						<a href="<?php echo app_base.'konfirmasi_pembayaran&nomor_pesan='.$value1['id_pesan'] ?>">
 							<button class="button button-inline button-small button-primary">
 								<i class="fa  fa-send"></i> Konfirmasi Pembayaran
 							</button>
 						</a>
+						<?php } ?>
 			</div>
 			<?php }}}} ?>
 		</div>

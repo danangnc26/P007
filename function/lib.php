@@ -58,11 +58,12 @@ Class Lib{
 
 	public static function ind($str = '')
 	{
-		if(is_numeric($str)){
-			return number_format($str, 0, ',', '.');	
-		}else{
-			return 'Bukan Angka';
-		}
+		// if(is_numeric($str)){
+			
+		// }else{
+		// 	return 'Bukan Angka';
+		// }
+		return number_format($str, 0, ',', '.');	
 		
 	}
 

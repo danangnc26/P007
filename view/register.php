@@ -39,7 +39,7 @@
 			<span class="input-group-addon" id="sizing-addon1">
 				<i class="fa fa-phone"></i>
 			</span>
-			<input type="text" name="no_hp" class="form-control cst" placeholder="No. Handphone ( Nomor yang Aktif dan Valid )" required>
+			<input type="text" pattern="[0-9].{10,}" title="Gunakan Format Angka dan Sesuai dengan format No. Handphone yang valid" name="no_hp" class="form-control cst" placeholder="No. Handphone ( Nomor yang Aktif dan Valid )" required>
 		</div>
 	</div>
 	<div class="form-group">

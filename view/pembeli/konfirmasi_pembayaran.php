@@ -43,7 +43,7 @@
 				</div>
 				<div class="form-group">
 					<label>Nomor rekening saya : </label>
-					<input class="form-control cst" name="no_rekening" required>
+					<input type="text" pattern="[0-9].{0,}" title="Gunakan Format Angka" class="form-control cst" name="no_rekening" required>
 				</div>
 				<div class="form-group">
 					<label>Nama pemilik rekening : </label>
@@ -67,11 +67,11 @@
 				</div> -->
 				<div class="form-group">
 					<label>Total yang harus dibayar / Kekurangan pembayaran : </label>
-					<input class="form-control cst" name="kekurangan_pembayaran" value="<?php echo 'Rp. '.Lib::ind($value1['kurang_bayar']) ?>" readonly required>
+					<input type="text" pattern="[0-9].{0,}" title="Gunakan Format Angka" class="form-control cst" name="kekurangan_pembayaran" value="<?php echo 'Rp. '.Lib::ind($value1['kurang_bayar']) ?>" readonly required>
 				</div>
 				<div class="form-group">
 					<label>Nominal yang akan dibayarkan : </label>
-					<input class="form-control cst" name="nominal_bayar" required>
+					<input type="text" pattern="[0-9].{0,}" title="Gunakan Format Angka" class="form-control cst" name="nominal_bayar" required>
 				</div>
 				<div class="form-group">
 					<button class="button button-inline button-small button-primary">

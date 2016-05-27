@@ -12,13 +12,13 @@ class Pesan extends Core{
 
 	public function index()
 	{
-		return $this->findAll('order by tanggal');
+		return $this->findAll('where status != 0 order by tanggal');
 		// return $this->findAll('where status = 1 order by tanggal');
 	}
 
 	public function listPesanan()
 	{
-		return $this->findAll('where id_user="'.$_SESSION['id_user'].'" order by tanggal');
+		return $this->findAll('where id_user="'.$_SESSION['id_user'].'" and status != 0 order by tanggal');
 	}
 
 	public function konfirmPembayaran1st($id)

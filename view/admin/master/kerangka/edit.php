@@ -12,7 +12,7 @@
 					</div>
 					<div class="form-group">
 						<label>Harga : </label>
-						<input name="harga" type="text" class="form-control cst" value="<?php echo $e['harga'] ?>">
+						<input name="harga" type="text" pattern="[0-9].{0,}" title="Gunakan Format Angka" required class="form-control cst" value="<?php echo $e['harga'] ?>">
 					</div>
 					<div class="form-group">
 						<button class="button button-inline button-small button-primary">
