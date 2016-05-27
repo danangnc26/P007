@@ -276,7 +276,7 @@ function route($page)
 }
 
 define("index", "index.php");
-define("base_url", server_name()."/p5-joni/");
+define("base_url", server_name()."/sipem/");
 define("app_base", index."?page=");
 
 function server_name()
