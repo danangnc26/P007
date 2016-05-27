@@ -56,6 +56,9 @@
 								<?php
 								}
 								?>
+								<a onclick="return confirm('Hapus data ini?')" href="<?php echo app_base.'delete_pembayaran&main=pembayaran&id_konfirmasi='.$value['id_konfirmasi_pembayaran'] ?>">
+										<i class="fa fa-trash"></i>
+								</a>
 							</td>
 						</tr>
 						<?php }} ?>

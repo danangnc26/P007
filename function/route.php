@@ -140,6 +140,9 @@ function route($page)
 				$data5 = $pembayaran->getTotalPembayaran($_GET['nomor_pesan']);
 				include "view/admin/pesanan/detail.php";
 			break;
+		case 'delete_pesanan':
+				$pesan->deletePesanan($_GET['nomor_pesan']);
+			break;
 
 		#PEMBAYARAN
 		case 'index_pembayaran':
@@ -152,6 +155,9 @@ function route($page)
 
 		case 'update_status':
 				$pesan->updateStatus($p);
+			break;
+		case 'delete_pembayaran':
+				$pembayaran->deletePembayaran($_GET['id_konfirmasi']);
 			break;
 
 		case 'index_laporan':
@@ -255,6 +261,11 @@ function route($page)
 		Lib::sendNotif();
 				// var_dump(Lib::sendNotif());
 		// var_dump(Lib::getUnpaidDate());
+			break;
+
+		case 'send_tagihan2':
+					Lib::sendNotif2();
+					header("location:javascript://history.go(-1)");
 			break;
 		
 		case 'main' :

@@ -116,7 +116,7 @@
 		  		</table>
 		  </div>
 		</div>
-					<a onclick="return confirm('Pesanan yang dikirim tidak akan dapat diubah lagi, lanjutkan?')" href="<?php echo app_base.'kirim_pesanan&nomor_pesan='.$_GET['nomor_pesan'] ?>">
+					<a onclick="return confirm('Pesanan yang dikirim tidak akan dapat diubah lagi, lanjutkan?')" href="<?php echo app_base.'kirim_pesanan&nomor_pesan='.$_GET['nomor_pesan'] ?>&no_hp=<?php echo $value1['no_hp'] ?>">
 					<button class="button button-inline button-small button-primary">
 							<i class="fa fa-save"></i>
 							Kirim Pesanan

@@ -94,6 +94,15 @@ class Pesan extends Core{
 		}
 	}
 
+	public function deletePesanan($id)
+	{
+		if($this->delete($this->primaryKey, $id)){
+			Lib::redirect('index_pesanan&main=pesanan');
+		}else{
+			header($this->back);
+		}
+	}
+
 	public function saveBKonfirmasi($input)
 	{
 		try {
@@ -138,6 +147,9 @@ class Pesan extends Core{
 				$update = $this->update($data, $this->primaryKey, $id);
 				if($update)
 				{
+					if(isset($_GET['no_hp']) && $_GET['no_hp'] != ''){
+						Lib::sendTerimaKasih($_GET['no_hp']);
+					}
 					Lib::redirect('home');
 				}else{
 					header($this->back);

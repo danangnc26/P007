@@ -58,7 +58,12 @@ Class Lib{
 
 	public static function ind($str = '')
 	{
-		return number_format($str, 0, ',', '.');
+		if(is_numeric($str)){
+			return number_format($str, 0, ',', '.');	
+		}else{
+			return 'Bukan Angka';
+		}
+		
 	}
 
 	public static function uploadImg($post)
@@ -205,6 +210,8 @@ Class Lib{
 	    					$stp = $value['step_notif'];
 	    				}
 	    				Lib::updStep($value['id_pesan'], $stp);
+
+	    				return $value['no_hp'].' - Terkirim';
 	    			}
 	    		}else{
 	    			if(Lib::dateRange($value['tanggal']) >= 7){
@@ -219,6 +226,37 @@ Class Lib{
     	}
     	
     	
+    }
+
+
+    public static function sendNotif2()
+    {
+    	$usr = new Users();
+    	if(Lib::getUnpaidDate() != null){
+    		foreach (Lib::getUnpaidDate() as $key => $value) {
+
+	    			$msg = 'Kpd Yth. '.$usr->getUserName($value['id_user']).'. ';
+	    			if($value['grand_total'] == $value['kurang_bayar']){
+	    				$msg .= 'Tagihan anda adalah Rp.'.$value['grand_total'].', Lakukan pembayaran agar kami dapat segera memproses pesanan anda';
+	    			}else{
+	    				$msg .= 'Kekurangan anda adalah Rp.'.$value['kurang_bayar'].', Lakukan pelunasan agar kami dapat segera mengirim pesanan anda';
+	    			}
+
+	    			Lib::sendSMS($value['no_hp'], $msg);
+
+	    	}	
+	    	return true;
+    	}else{
+    		return false;
+    	}
+    	
+    	
+    }
+
+    public static function sendTerimaKasih($no)
+    {
+    	$msg = "Terima kasih sudah melakukan pemesanan di CV.99 \nNB: Bila anda sudah melakukan transfer pembayaran diharap untuk segera konfirmasi.";
+		return Lib::sendSMS($no, $msg);
     }
 
     public static function sendSMS($notelepon,$message)

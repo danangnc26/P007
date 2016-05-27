@@ -46,7 +46,7 @@ Class Core{
 			}
 		}
 		if ($this->con()->query($sql) === TRUE) {
-			$this->cls($this->con());
+			// $this->cls($this->con());
 		    return true;
 
 		} else {

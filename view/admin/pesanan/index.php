@@ -34,10 +34,15 @@
 							<td><?php echo 'Rp. '.Lib::ind($value['grand_total']) ?></td>
 							<td><?php echo ($value['kurang_bayar'] < 0 ) ? '( Kelebihan Pembayaran : Rp. '.abs(Lib::ind($value['kurang_bayar'])).' )' : 'Rp. '.Lib::ind($value['kurang_bayar']) ?></td>
 							<td width="300"><?php echo Lib::status($value['status']) ?></td>
-							<td width="105" align="center">
+							<td width="170" align="center">
 								<a href="<?php echo app_base.'detail_pesanan&main=pesanan&nomor_pesan='.$value['id_pesan'].'&id_user='.$value['id_user'] ?>">
 									<button class="button button-inline button-small">
 										<i class="fa fa-eye"></i> Detail
+									</button>
+								</a>
+								<a onclick="return confirm('Hapus data ini?')" href="<?php echo app_base.'delete_pesanan&main=pesanan&nomor_pesan='.$value['id_pesan'] ?>">
+									<button class="button button-inline button-small">
+										<i class="fa fa-trash"></i> Hapus
 									</button>
 								</a>
 							</td>

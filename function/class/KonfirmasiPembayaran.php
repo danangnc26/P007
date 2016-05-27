@@ -92,5 +92,14 @@ class KonfirmasiPembayaran extends Core{
 		}
 	}
 
+	public function deletePembayaran($id)
+	{
+		if($this->delete($this->primaryKey, $id)){
+			Lib::redirect('index_pembayaran&main=pembayaran');
+		}else{
+			header($this->back);
+		}
+	}
+
 	
 }

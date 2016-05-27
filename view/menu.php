@@ -48,6 +48,7 @@
 		      	if(!empty($_SESSION)){
 		      	if($_SESSION['level_user'] == 'admin'){
 		      	?>
+		      	<li><a class="nv" href="<?php echo app_base.'send_tagihan2' ?>"><i class="fa fa-send"></i> Kirim Notifikasi Tagihan</a></li>
 		      	<li><a class="nv" href="<?php echo app_base.'show_welcome&main=awal' ?>">Panel Admin</a></li>
 		      	<?php
 		      	}}
