@@ -60,6 +60,9 @@ foreach($data1 as $key1 => $value1){
 	    	</tfoot>
 	    	<?php } ?>
 	    </table>
+	    <p><small>
+	    	Kami tidak menyediakan barang dalam kondisi ready stock, Barang akan kami produksi jika customer telah melakukan pemesanan.
+	    </small></p>
 	    <a href="<?php echo app_base.'view_produk' ?>">
 		    <button type="button" class="button button-inline button-small button-success">
 				<i class="fa fa-plus"></i>

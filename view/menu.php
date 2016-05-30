@@ -8,7 +8,7 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <a style="color:#fff" class="navbar-brand" href="<?php echo app_base.'home' ?>">CV.Sembilan Sembilan</a>
+		      <!-- <a style="color:#fff" class="navbar-brand" href="<?php echo app_base.'home' ?>">CV.Sembilan Sembilan</a> -->
 		    </div>
 
 		    <!-- Collect the nav links, forms, and other content for toggling -->

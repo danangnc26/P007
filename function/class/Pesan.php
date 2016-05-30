@@ -182,6 +182,7 @@ class Pesan extends Core{
 		try {
 			$data = ['status' => $input['status']];
 			if($this->update($data, $this->primaryKey, $input['id_pesan'])){
+				Lib::sendStatus($input['no_hp'], $input['status'], $input['id_pesan']);
 				Lib::redirect('detail_pesanan&main=pesanan&nomor_pesan='.$input['id_pesan'].'&id_user='.$input['id_user']);
 			}else{
 				header($this->back);

@@ -260,6 +260,12 @@ Class Lib{
 		return Lib::sendSMS($no, $msg);
     }
 
+    public static function sendStatus($no, $status, $nopesan)
+    {
+    	$msg = "Status pesanan nomor #".$nopesan." saat ini berubah menjadi : \n ".Lib::status($status);
+    	return Lib::sendSMS($no, $msg);
+    }
+
     public static function sendSMS($notelepon,$message)
     {
     	// Script http API SMS Reguler Zenziva

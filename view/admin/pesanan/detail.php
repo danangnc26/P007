@@ -84,6 +84,7 @@
 				    	<div class="input-group">
 				    	  	  <input type="hidden" name="id_pesan" value="<?php echo $value1['id_pesan'] ?>">
 				    	  	  <input type="hidden" name="id_user" value="<?php echo $value1['id_user'] ?>">
+				    	  	  <input type="hidden" name="no_hp" value="<?php echo $value1['no_hp'] ?>">
 							  <select name="status" class="form-control cst">
 							  		<option <?php echo ($value1['status'] == '1') ? 'selected' : '' ?> value="1">Pending</option>
 							  		<option <?php echo ($value1['status'] == '2') ? 'selected' : '' ?> value="2">Proses Produksi</option>
