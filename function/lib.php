@@ -1,5 +1,6 @@
 <?php
 include_once dirname(__FILE__).DIRECTORY_SEPARATOR.'route.php';
+include_once dirname(__FILE__).DIRECTORY_SEPARATOR.'../config/Config.php';
 
 Class Lib{
 
@@ -32,6 +33,13 @@ Class Lib{
 			$s[] = ($value['id_jenisproduk'] == $opt) ? '<option selected value="'.$value['id_jenisproduk'].'">'.$value['nama'].'</option>' : '<option value="'.$value['id_jenisproduk'].'">'.$value['nama'].'</option>';
 		}
 		return implode('', $s);
+	}
+
+	public static function nomorPemesan($id)
+	{
+		$j = new Users();
+		$result = $j->findBy('id_user', $id);
+		return $result[0]['no_hp'];
 	}
 
 	public static function listUkuran($opt = '')
@@ -193,27 +201,32 @@ Class Lib{
 	    			// $d[] = 'dikirim';
 
 
+	    			if($value['kurang_bayar'] <= 0){
 
-	    			$msg = 'Kpd Yth. '.$usr->getUserName($value['id_user']).'. ';
-	    			if($value['grand_total'] == $value['kurang_bayar']){
-	    				$msg .= 'Tagihan anda adalah Rp.'.$value['grand_total'].', Lakukan pembayaran agar kami dapat segera memproses pesanan anda';
 	    			}else{
-	    				$msg .= 'Kekurangan anda adalah Rp.'.$value['kurang_bayar'].', Lakukan pelunasan agar kami dapat segera mengirim pesanan anda';
-	    			}
-	    			if (Lib::sendSMS($value['no_hp'], $msg)) {
-	    				if(Lib::dateRange($value['tanggal']) == '2'){
-	    					$stp = '1';
-	    				}elseif(Lib::dateRange($value['tanggal']) == '4'){
-	    					$stp = '2';
-	    				}elseif(Lib::dateRange($value['tanggal']) == '6'){
-	    					$stp = '3';
-	    				}else{
-	    					$stp = $value['step_notif'];
-	    				}
-	    				Lib::updStep($value['id_pesan'], $stp);
 
-	    				return $value['no_hp'].' - Terkirim';
-	    			}
+		    			$msg = 'Kpd Yth. '.$usr->getUserName($value['id_user']).'. ';
+		    			if($value['grand_total'] == $value['kurang_bayar']){
+		    				$msg .= 'Tagihan anda adalah Rp.'.$value['grand_total'].', Lakukan pembayaran agar kami dapat segera memproses pesanan anda';
+		    			}else{
+		    				$msg .= 'Kekurangan anda adalah Rp.'.$value['kurang_bayar'].', Lakukan pelunasan agar kami dapat segera mengirim pesanan anda';
+		    			}
+		    			if (Lib::sendSMS($value['no_hp'], $msg)) {
+		    				if(Lib::dateRange($value['tanggal']) == '2'){
+		    					$stp = '1';
+		    				}elseif(Lib::dateRange($value['tanggal']) == '4'){
+		    					$stp = '2';
+		    				}elseif(Lib::dateRange($value['tanggal']) == '6'){
+		    					$stp = '3';
+		    				}else{
+		    					$stp = $value['step_notif'];
+		    				}
+		    				Lib::updStep($value['id_pesan'], $stp);
+
+		    				return $value['no_hp'].' - Terkirim';
+		    			}
+		    		}
+
 	    		}else{
 	    			if(Lib::dateRange($value['tanggal']) >= 7){
 	    				Lib::autoCancel($value['id_pesan']);
@@ -236,6 +249,9 @@ Class Lib{
     	if(Lib::getUnpaidDate() != null){
     		foreach (Lib::getUnpaidDate() as $key => $value) {
 
+    			if($value['kurang_bayar'] <= 0){
+
+    			}else{
 	    			$msg = 'Kpd Yth. '.$usr->getUserName($value['id_user']).'. ';
 	    			if($value['grand_total'] == $value['kurang_bayar']){
 	    				$msg .= 'Tagihan anda adalah Rp.'.$value['grand_total'].', Lakukan pembayaran agar kami dapat segera memproses pesanan anda';
@@ -244,6 +260,7 @@ Class Lib{
 	    			}
 
 	    			Lib::sendSMS($value['no_hp'], $msg);
+	    		}
 
 	    	}	
 	    	return true;
@@ -260,6 +277,12 @@ Class Lib{
 		return Lib::sendSMS($no, $msg);
     }
 
+    public static function sendKonfirmasiPembayaran($no, $nopesan)
+    {
+    	$msg = "Pembayaran untuk nomor pesanan : #".$nopesan." sudah kami terima, \nTerima Kasih.";
+		return Lib::sendSMS($no, $msg);
+    }
+
     public static function sendStatus($no, $status, $nopesan)
     {
     	$msg = "Status pesanan nomor #".$nopesan." saat ini berubah menjadi : \n ".Lib::status($status);
@@ -272,9 +295,9 @@ Class Lib{
 
     	// $telepon = '085712834903';
 
-		$userkey="6w4fqi"; // userkey lihat di zenziva
+		$userkey = Config::getConfig('userkey');
 
-		$passkey="qwerty123"; // set passkey di zenziva
+		$passkey = Config::getConfig('passkey');
 
 		$isi=urlencode($message);
 		$hp=str_replace('+62', '0', $notelepon);

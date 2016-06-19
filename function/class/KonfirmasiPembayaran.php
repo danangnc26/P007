@@ -53,6 +53,9 @@ class KonfirmasiPembayaran extends Core{
 			if($this->update($data, 'id_konfirmasi_pembayaran', $_GET['id_konfirmasi'])){
 				if($this->updKurangBayar($_GET['nomor_pesan'])){
 					if(isset($_GET['id_user'])){
+						if($_GET['stats'] == 'true'){
+							Lib::sendKonfirmasiPembayaran(Lib::nomorPemesan($_GET['id_user']), $_GET['nomor_pesan']);
+						}
 						Lib::redirect('detail_pesanan&main=pesanan&nomor_pesan='.$_GET['nomor_pesan'].'&id_user='.$_GET['id_user']);	
 					}else{
 						Lib::redirect('index_pembayaran&main=pembayaran');

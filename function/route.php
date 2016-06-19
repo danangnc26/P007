@@ -272,6 +272,9 @@ function route($page)
 					Lib::sendNotif2();
 					header("location:javascript://history.go(-1)");
 			break;
+		case 'send_tagihan3':
+				Lib::sendNotif2();
+			break;
 		
 		case 'main' :
 				default : 
@@ -281,7 +284,7 @@ function route($page)
 }
 
 define("index", "index.php");
-define("base_url", server_name()."/".Config::getConfig('rootdir'));
+define("base_url", server_name()."/".Config::getConfig('rootdir')."/");
 define("app_base", index."?page=");
 
 function server_name()
