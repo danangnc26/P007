@@ -16,7 +16,7 @@
 		      <ul class="nav navbar-nav">
 		        <li><a class="nv" href="<?php echo app_base.'home' ?>">Home</a></li>
 		        <li class="dropdown">
-		          <a href="#" class="dropdown-toggle nv" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Produk <span class="caret"></span></a>
+		          <a href="#" class="dropdown-toggle nv" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Product <span class="caret"></span></a>
 		          <ul class="dropdown-menu">
 		            <?php
 		            if(empty(Lib::listProduk())){
@@ -29,7 +29,7 @@
 		        	}
 		        	?>
 		        	<li role="separator" class="divider"></li>
-		            <li><a href="<?php echo app_base.'view_produk' ?>">Semua</a></li>
+		            <li><a href="<?php echo app_base.'view_produk' ?>">All Product</a></li>
 		        	<?php
 		        	}
 		            ?>	
@@ -39,8 +39,8 @@
 		        			if($_SESSION['level_user'] == 'customer'){
 		        ?>
 		        <li><a class="nv" href="<?php echo app_base.'custom_order' ?>">Custom Order</a></li>
-		        <li><a class="nv" href="<?php echo app_base.'daftar_pesananku' ?>">Daftar Pemesanan</a></li>	     
-		        <li><a class="nv" href="<?php echo app_base.'pesanan_sekarang' ?>">Keranjang Pesanan</a></li>
+		        <li><a class="nv" href="<?php echo app_base.'daftar_pesananku' ?>">Order History</a></li>	     
+		        <li><a class="nv" href="<?php echo app_base.'pesanan_sekarang' ?>">Order Cart</a></li>
 		        <?php }} ?>
 		      </ul>	
 		      <ul class="nav navbar-nav navbar-right">
@@ -48,7 +48,7 @@
 		      	if(!empty($_SESSION)){
 		      	if($_SESSION['level_user'] == 'admin'){
 		      	?>
-		      	<li><a class="nv" href="<?php echo app_base.'send_tagihan2' ?>"><i class="fa fa-send"></i> Kirim Notifikasi Tagihan</a></li>
+		      	<li><a class="nv" href="<?php echo app_base.'send_tagihan2' ?>"><i class="fa fa-send"></i> Send Notification</a></li>
 		      	<li><a class="nv" href="<?php echo app_base.'show_welcome&main=awal' ?>">Panel Admin</a></li>
 		      	<?php
 		      	}}
@@ -56,17 +56,17 @@
 		      	<?php
 		      	if(empty($_SESSION)){
 		      	?>
-		      	<li><a class="nv" href="<?php echo app_base.'daftar' ?>">Daftar</a></li>
+		      	<li><a class="nv" href="<?php echo app_base.'daftar' ?>">Register</a></li>
 		        <li><a class="nv" href="<?php echo app_base.'login' ?>">Log In</a></li>
 		        <?php
 		    	}else{
 		    	if($_SESSION['level_user'] == 'customer'){
 		        ?>
 		        <li class="dropdown">
-		          <a href="#" class="dropdown-toggle nv" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo ($_SESSION['jk'] == 'L') ? 'Tn. '. $_SESSION['nama_lengkap'] : 'Ny. '. $_SESSION['nama_lengkap'] ?><span class="caret"></span></a>
+		          <a href="#" class="dropdown-toggle nv" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo ($_SESSION['jk'] == 'L') ? 'Mr. '. $_SESSION['nama_lengkap'] : 'Mrs. '. $_SESSION['nama_lengkap'] ?><span class="caret"></span></a>
 		          <ul class="dropdown-menu">
-		            <li><a href="<?php echo app_base.'ubah_data_pribadi' ?>">Ubah Data Pribadi</a></li>
-		            <li><a href="<?php echo app_base.'ubah_password' ?>">Ubah Password</a></li>
+		            <li><a href="<?php echo app_base.'ubah_data_pribadi' ?>">Change Profile</a></li>
+		            <li><a href="<?php echo app_base.'ubah_password' ?>">Change Password</a></li>
 		            <li role="separator" class="divider"></li>
 		            <li><a href="<?php echo app_base.'logout' ?>">Log Out</a></li>
 		          </ul>
