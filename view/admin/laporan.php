@@ -35,7 +35,7 @@
 
 </script>
 <div class="col-md-12">
-	<h3>Panel Admin</h3>
+	<h3>Admin Panel</h3>
 	<hr>
 	<ul class="nav nav-tabs">
 	  <?php include "view/admin/menu-admin.php"; ?>
